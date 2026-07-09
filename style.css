@@ -1498,11 +1498,11 @@ img, svg {
 /* ==========================================================================
    12. RESPONSIVE BREAKPOINTS (ALL 5 PAGES & MOBILE NAVBAR)
    ========================================================================== */
-@media (max-width: 1250px) {
+@media (max-width: 950px) {
   .nav-header {
     grid-template-columns: 1fr auto !important;
   }
-  .nav-links, .nav-meta {
+  .nav-links {
     display: none !important;
   }
   .mobile-nav-toggle {

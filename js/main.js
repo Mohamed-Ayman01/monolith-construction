@@ -51,14 +51,6 @@ export function renderHeader(activePage = 'home') {
         <a href="capabilities.html" class="nav-link ${activePage === 'capabilities' ? 'active' : ''}">[03] CAPABILITIES</a>
         <a href="manifesto.html" class="nav-link ${activePage === 'manifesto' ? 'active' : ''}">[04] MANIFESTO</a>
         <a href="estimate.html" class="nav-link ${activePage === 'estimate' ? 'active' : ''}">[05] ESTIMATE</a>
-      </nav>
-      <div class="nav-meta">
-        <div class="nav-clock" id="live-clock">LAT: 34°03'N • 00:00:00 UTC</div>
-        <div class="nav-status">
-          <span class="status-dot"></span>
-          SYS_ONLINE
-        </div>
-      </div>
       <button id="mobile-nav-toggle" class="mobile-nav-toggle font-mono" aria-label="Toggle Navigation Menu">
         <span>[ MENU // + ]</span>
       </button>
