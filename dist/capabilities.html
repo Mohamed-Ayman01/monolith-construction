@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STRUCT // CAPABILITIES • ENGINEERING SPECIFICATIONS</title>
+  <meta name="description" content="Technical blueprinting and engineering services: Monolithic Concrete Engineering, Seismic Reinforcing, Heavy Corten Steel Fabrication, and Acoustic Bunkering." />
+  <script type="module" crossorigin src="/assets/capabilities-Cd1PIEAr.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/main-DpI-GIT5.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-DIdO42iW.css">
+</head>
+<body class="bg-primary text-primary">
+  
+  <div class="page-content">
+    
+    <!-- Page Header -->
+    <section style="padding: 4rem; background: #FFF; border-bottom: var(--border-heavy); position: relative;">
+      <div class="grid-line-h" style="bottom: 0;"></div>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem;">
+        <div>
+          <div class="badge-mono" style="margin-bottom: 1rem;">[ SECTION 03 // TECHNICAL BLUEPRINTING DIRECTORY ]</div>
+          <h1 class="title-xl mask-text">ENGINEERING &<br>SERVICES</h1>
+        </div>
+        <div class="font-mono text-mono-md" style="max-width: 440px;">
+          CLICK ANY ENGINEERING CAPABILITY BELOW TO LIVE-DRAW THE ISOMETRIC STRUCTURAL SCHEMATIC AND TECHNICAL SPECIFICATIONS MATRIX.
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities Split Layout -->
+    <div class="capabilities-layout">
+      
+      <!-- Left Column: Services List -->
+      <div id="services-list" class="capabilities-list-col">
+        <!-- Dynamically populated by js/capabilities.js -->
+      </div>
+
+      <!-- Right Column: Sticky Blueprint Canvas Viewer & Specs Table -->
+      <div class="capabilities-blueprint-col">
+        
+        <!-- Interactive Blueprint Viewer -->
+        <div class="blueprint-canvas-wrapper">
+          <div class="blueprint-header-tag">
+            <span id="service-id">[ SERVICE SPECIFICATION // #01 ]</span>
+            <span>CAD / BIM VECTOR ENGINE</span>
+          </div>
+
+          <!-- Vector Drawing Area -->
+          <div class="blueprint-drawing-area">
+            <!-- Grid Watermark overlay -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px; opacity: 0.15; pointer-events: none;"></div>
+            
+            <svg id="service-svg" viewBox="0 0 400 380" class="blueprint-vector-path">
+              <!-- Dynamically drawn by JS -->
+            </svg>
+          </div>
+
+          <!-- Service Description Header inside Canvas -->
+          <div style="border-top: var(--border-thick); padding-top: 1.5rem; margin-top: 1rem;">
+            <h2 id="service-title" class="font-header" style="font-size: 1.6rem; margin-bottom: 0.5rem;">MONOLITHIC CONCRETE ENGINEERING</h2>
+            <div id="service-subtitle" class="font-mono text-mono-xs" style="color: var(--text-muted); margin-bottom: 1rem;">ULTRA-HIGH PERFORMANCE FIBER CONCRETE</div>
+            <p id="service-description" class="font-mono text-mono-md" style="line-height: 1.6; color: var(--text-secondary);"></p>
+          </div>
+        </div>
+
+        <!-- Specifications Table Below Canvas -->
+        <div id="spec-table-container" class="spec-table-container">
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>TECHNICAL PARAMETER</th>
+                <th>ENGINEERED RATING / VALUE</th>
+              </tr>
+            </thead>
+            <tbody id="spec-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

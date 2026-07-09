@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%" style="background:#000;">
+  <!-- Grid Watermark -->
+  <defs>
+    <pattern id="grid-f" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#222" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grid-f)"/>
+  
+  <!-- Massive Monolithic Concrete Block Fortress -->
+  <rect x="220" y="160" width="760" height="520" fill="#111" stroke="#FFF" stroke-width="6"/>
+  
+  <!-- Angled Kinetic Defense Louvers -->
+  <polygon points="260,200 940,240 940,280 260,240" fill="#000" stroke="#FFF" stroke-width="4"/>
+  <polygon points="260,300 940,340 940,380 260,340" fill="#000" stroke="#FFF" stroke-width="4"/>
+  <polygon points="260,400 940,440 940,480 260,440" fill="#000" stroke="#FFF" stroke-width="4"/>
+  <polygon points="260,500 940,540 940,580 260,540" fill="#000" stroke="#FFF" stroke-width="4"/>
+  
+  <!-- Updraft Cooling Vent Shafts -->
+  <rect x="320" y="80" width="80" height="80" fill="#000" stroke="#FFF" stroke-width="5"/>
+  <rect x="560" y="80" width="80" height="80" fill="#000" stroke="#FFF" stroke-width="5"/>
+  <rect x="800" y="80" width="80" height="80" fill="#000" stroke="#FFF" stroke-width="5"/>
+  <line x1="360" y1="30" x2="360" y2="80" stroke="#FFF" stroke-width="3" stroke-dasharray="6,4"/>
+  <line x1="600" y1="30" x2="600" y2="80" stroke="#FFF" stroke-width="3" stroke-dasharray="6,4"/>
+  <line x1="840" y1="30" x2="840" y2="80" stroke="#FFF" stroke-width="3" stroke-dasharray="6,4"/>
+
+  <!-- Technical Stamp -->
+  <rect x="60" y="620" width="260" height="100" fill="#000" stroke="#FFF" stroke-width="3"/>
+  <text x="80" y="650" fill="#FFF" font-family="monospace" font-size="16" font-weight="bold">[ BLUEPRINT // #ST-103 ]</text>
+  <text x="80" y="675" fill="#AAA" font-family="monospace" font-size="14">BRUTALIST DATA FORTRESS</text>
+  <text x="80" y="698" fill="#FFF" font-family="monospace" font-size="14">EMP SHIELD: MIL-STD-188-125</text>
+
+  <!-- Security Perimeter Line -->
+  <line x1="100" y1="680" x2="1100" y2="680" stroke="#FFF" stroke-width="6"/>
+  <polygon points="220,680 250,730 190,730" fill="#FFF"/>
+  <polygon points="980,680 1010,730 950,730" fill="#FFF"/>
+</svg>

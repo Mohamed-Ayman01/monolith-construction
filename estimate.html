@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STRUCT // ESTIMATE • BESPOKE PROJECT INITIATION</title>
+  <meta name="description" content="Architectural specification sheet and interactive structural estimator tool. Calculate volume, Corten steel tonnage, seismic ratings, and estimated budget ranges live." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-primary text-primary">
+  
+  <div class="page-content">
+    
+    <!-- Estimator Split Layout -->
+    <div class="estimator-layout">
+      
+      <!-- Left Panel: Architectural Specification Form -->
+      <div class="form-panel">
+        
+        <div class="spec-sheet-header">
+          <div class="badge-mono" style="margin-bottom: 1rem;">[ SECTION 05 // BESPOKE INITIATION SPECIFICATION ]</div>
+          <h1 class="title-xl mask-text" style="margin-bottom: 1.5rem;">
+            PROJECT INITIATION &<br>LIVE ESTIMATOR
+          </h1>
+          <p class="font-mono text-mono-md" style="color: var(--text-secondary); line-height: 1.6;">
+            Adjust physical dimensions, structural typology, material matrices, and terrain hardness to compute real-time concrete volume ($M^3$), Corten steel tonnage ($MT$), and projected budget parameters.
+          </p>
+        </div>
+
+        <form id="spec-form" class="spec-form" onsubmit="return false;">
+          
+          <!-- Group 1: Scale & Dimensions Sliders -->
+          <div class="form-group">
+            <div class="form-label">
+              <span>01 // TARGET PHYSICAL DIMENSIONS & SCALE</span>
+              <span class="text-mono-xs" style="color: var(--text-muted);">RANGE: 10M - 500M</span>
+            </div>
+
+            <div class="range-slider-item">
+              <div class="range-label-row">
+                <span>FOOTPRINT WIDTH (X-AXIS):</span>
+                <span id="val-width" style="font-weight: 800;">120 METERS</span>
+              </div>
+              <input type="range" id="slider-width" class="neo-slider" min="10" max="500" step="10" value="120" />
+            </div>
+
+            <div class="range-slider-item">
+              <div class="range-label-row">
+                <span>FOOTPRINT LENGTH (Y-AXIS):</span>
+                <span id="val-length" style="font-weight: 800;">80 METERS</span>
+              </div>
+              <input type="range" id="slider-length" class="neo-slider" min="10" max="500" step="10" value="80" />
+            </div>
+
+            <div class="range-slider-item">
+              <div class="range-label-row">
+                <span>VERTICAL LEVELS / HEIGHT (Z-AXIS):</span>
+                <span id="val-floors" style="font-weight: 800;">24 LEVELS (100.8M)</span>
+              </div>
+              <input type="range" id="slider-floors" class="neo-slider" min="1" max="80" step="1" value="24" />
+            </div>
+          </div>
+
+          <!-- Group 2: Structural Typology Radio Grid -->
+          <div class="form-group">
+            <div class="form-label">
+              <span>02 // STRUCTURAL TYPOLOGY CLASSIFICATION</span>
+              <span class="text-mono-xs" style="color: var(--text-muted);">SELECT ONE</span>
+            </div>
+
+            <div class="toggle-grid">
+              <div>
+                <input type="radio" id="typ-1" name="typology" value="COMMERCIAL TOWER" class="neo-radio-input" data-mult="1.2" checked />
+                <label for="typ-1" class="neo-radio-label">[ ■ COMMERCIAL TOWER ]</label>
+              </div>
+              <div>
+                <input type="radio" id="typ-2" name="typology" value="SUBTERRANEAN VAULT" class="neo-radio-input" data-mult="1.6" />
+                <label for="typ-2" class="neo-radio-label">[ ▼ SUBTERRANEAN VAULT ]</label>
+              </div>
+              <div>
+                <input type="radio" id="typ-3" name="typology" value="INDUSTRIAL FORTRESS" class="neo-radio-input" data-mult="1.4" />
+                <label for="typ-3" class="neo-radio-label">[ ▲ INDUSTRIAL FORTRESS ]</label>
+              </div>
+              <div>
+                <input type="radio" id="typ-4" name="typology" value="RESIDENTIAL MONOLITH" class="neo-radio-input" data-mult="1.1" />
+                <label for="typ-4" class="neo-radio-label">[ ● RESIDENTIAL MONOLITH ]</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group 3: Primary Material Matrix Checkbox Grid -->
+          <div class="form-group">
+            <div class="form-label">
+              <span>03 // PRIMARY MATERIAL & REINFORCEMENT MATRIX</span>
+              <span class="text-mono-xs" style="color: var(--text-muted);">MULTI-SELECT</span>
+            </div>
+
+            <div class="toggle-grid">
+              <div>
+                <input type="checkbox" id="mat-1" name="material" value="ULTRA-HIGH PERFORMANCE CONCRETE" class="neo-radio-input" data-add="0.25" checked />
+                <label for="mat-1" class="neo-radio-label">[ ✔ UHPFRC CONCRETE MIX ]</label>
+              </div>
+              <div>
+                <input type="checkbox" id="mat-2" name="material" value="CORTEN STEEL EXOSKELETON" class="neo-radio-input" data-add="0.30" checked />
+                <label for="mat-2" class="neo-radio-label">[ ✔ CORTEN STEEL TRUSS ]</label>
+              </div>
+              <div>
+                <input type="checkbox" id="mat-3" name="material" value="POST-TENSIONED SLABS" class="neo-radio-input" data-add="0.15" />
+                <label for="mat-3" class="neo-radio-label">[ ✔ POST-TENSIONED SLAB ]</label>
+              </div>
+              <div>
+                <input type="checkbox" id="mat-4" name="material" value="SEISMIC BASE ISOLATORS" class="neo-radio-input" data-add="0.35" checked />
+                <label for="mat-4" class="neo-radio-label">[ ✔ SEISMIC ISOLATION RAFT ]</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Group 4: Locational Hardness Index -->
+          <div class="form-group">
+            <div class="form-label">
+              <span>04 // LOCATIONAL HARDNESS & TERRAIN INDEX</span>
+            </div>
+            <select id="select-hardness" class="neo-input" style="font-weight: 700; cursor: pointer;">
+              <option value="1.0">STANDARD BEDROCK TERRAIN [x1.0 BASE]</option>
+              <option value="1.2">HIGH-DENSITY URBAN CORE DISPLACEMENT [x1.2]</option>
+              <option value="1.5" selected>CLASS IX TECTONIC SEISMIC FAULT ZONE [x1.5]</option>
+              <option value="1.4">EXTREME ALPINE PERMAFROST / COASTAL SURGE [x1.4]</option>
+            </select>
+          </div>
+
+          <!-- Group 5: Bespoke Contact Grid -->
+          <div class="form-group" style="border-top: var(--border-heavy); padding-top: 3rem;">
+            <div class="form-label">
+              <span>05 // ARCHITECTURAL BRIEF & DISPATCH DATA</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+              <div>
+                <label class="font-mono text-mono-xs" style="display: block; margin-bottom: 0.5rem; font-weight: 700;">CHIEF ARCHITECT / CONTACT NAME:</label>
+                <input type="text" placeholder="DR. K. VOGEL // ARCHITECT" class="neo-input" required />
+              </div>
+              <div>
+                <label class="font-mono text-mono-xs" style="display: block; margin-bottom: 0.5rem; font-weight: 700;">ORGANIZATION / FIRM:</label>
+                <input type="text" placeholder="SOVEREIGN DEVELOPMENT CORP" class="neo-input" required />
+              </div>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+              <label class="font-mono text-mono-xs" style="display: block; margin-bottom: 0.5rem; font-weight: 700;">DIRECT PHONE OR SECURE TERMINAL ID:</label>
+              <input type="text" placeholder="+41 (0) 44 632 11 11 // CH-ZURICH" class="neo-input" required />
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+              <label class="font-mono text-mono-xs" style="display: block; margin-bottom: 0.5rem; font-weight: 700;">TECHNICAL BRIEF & SITE COORDINATES:</label>
+              <textarea placeholder="Specify geological constraints, target completion window, and desired structural tolerance parameters..." class="neo-input" rows="4" style="resize: vertical;"></textarea>
+            </div>
+
+            <div>
+              <button id="btn-generate-pdf" class="btn-neo-black" style="width: 100%; padding: 1.4rem; font-size: 1rem; letter-spacing: 0.08em;">
+                [ SUBMIT FOR STRUCTURAL REVIEW & GENERATE BLUEPRINT SPEC ]
+              </label>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+      <!-- Right Panel: Sticky Live Monospaced Receipt Block -->
+      <div class="receipt-panel">
+        
+        <div class="terminal-receipt-box">
+          <div class="receipt-header">
+            <div id="rec-serial" style="font-weight: 800; font-size: 1.1rem; margin-bottom: 0.4rem;">RECEIPT // #EST-8842-X</div>
+            <div id="rec-date" style="font-size: 0.75rem; color: var(--text-muted);">DISPATCH_DATE: 2026-07-10</div>
+            <div style="font-size: 0.75rem; margin-top: 0.4rem;">STRUCTURAL ESTIMATE PROTOCOL // V4.8</div>
+          </div>
+
+          <div class="receipt-row">
+            <span>RAW CONCRETE VOLUME:</span>
+            <span id="rec-volume" style="font-weight: 800;">38,400 M³</span>
+          </div>
+
+          <div class="receipt-row">
+            <span>REINFORCED STEEL TONNAGE:</span>
+            <span id="rec-tonnage" style="font-weight: 800;">5,760 MT</span>
+          </div>
+
+          <div class="receipt-row">
+            <span>SEISMIC STRUCTURAL RATING:</span>
+            <span id="rec-rating" style="font-weight: 800; color: #000; background: #EEE; padding: 2px 6px;">CLASS IX-EX</span>
+          </div>
+
+          <div class="receipt-row">
+            <span>ESTIMATED POUR TIMELINE:</span>
+            <span id="rec-timeline" style="font-weight: 800;">18 - 22 MONTHS</span>
+          </div>
+
+          <div class="receipt-row total">
+            <span>BUDGET RANGE:</span>
+            <span id="rec-cost" style="color: #000;">$68.4M - $85.5M USD</span>
+          </div>
+
+          <div style="margin-top: 1.5rem; font-size: 0.75rem; color: var(--text-secondary); line-height: 1.6; border-top: 1px solid #000; padding-top: 1rem;">
+            * NOTE: All calculations based on ASTM C1856 UHPFRC concrete formulations and Grade 80 Corten high-tensile steel. Final engineering approval requires finite-element BIM verification.
+          </div>
+
+          <div class="barcode-strip"></div>
+          <div style="text-align: center; font-size: 0.7rem; margin-top: 0.5rem; letter-spacing: 0.2em;">*ST-MONOLITH-2026-AUTH*</div>
+        </div>
+
+        <!-- Terminal Status Card -->
+        <div style="margin-top: 2rem; border: var(--border-thick); background: #000; color: #FFF; padding: 1.5rem; font-family: var(--font-mono); font-size: 0.8rem;">
+          <div style="color: #00FF66; margin-bottom: 0.5rem;">● SYSTEM TERMINAL ACTIVE</div>
+          <div>BIM CAD COMPATIBILITY: 100% (REVIT/RHINO/IFC)</div>
+          <div>DIRECT DISPATCH: ZURICH HQ // SAN ANDREAS HQ</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script type="module" src="js/estimate.js"></script>
+</body>
+</html>

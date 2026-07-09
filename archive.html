@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STRUCT // ARCHIVE • PROJECT LEDGER V4.2</title>
+  <meta name="description" content="Explore the structural construction ledger and architectural archive of STRUCT. Filter by scale, concrete and steel materials, and global locations." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-primary text-primary">
+  
+  <div class="page-content">
+    
+    <!-- Header Title Section -->
+    <section class="archive-header">
+      <div class="grid-line-h" style="bottom: 0;"></div>
+      <div>
+        <div class="badge-mono" style="margin-bottom: 1rem;">[ SECTION 02 // MASTER ARCHIVE DIRECTORY ]</div>
+        <h1 class="title-xl mask-text">PROJECT LEDGER // V4.2</h1>
+      </div>
+      <div class="font-mono text-mono-md" style="max-width: 400px; text-align: right;">
+        INVENTORY OF ALL MONOLITHIC COMMISSIONS, SEISMIC REINFORCEMENTS, AND HEAVY STEEL STRUCTURES FROM 2020 TO 2026.
+      </div>
+    </section>
+
+    <!-- Controls Bar (Filter Buttons + Layout View Toggle) -->
+    <section class="archive-controls">
+      <div class="filter-btn-group">
+        <button class="filter-btn active" data-filter="ALL">[ ALL TYPOLOGIES ]</button>
+        <button class="filter-btn" data-filter="MEGAPROJECT">[ MEGAPROJECT (SCALE) ]</button>
+        <button class="filter-btn" data-filter="CONCRETE">[ CONCRETE (MATERIAL) ]</button>
+        <button class="filter-btn" data-filter="STEEL">[ CORTEN STEEL (MATERIAL) ]</button>
+        <button class="filter-btn" data-filter="EUROPE">[ EUROPE (LOCATION) ]</button>
+        <button class="filter-btn" data-filter="AMERICAS">[ AMERICAS (LOCATION) ]</button>
+        <button class="filter-btn" data-filter="ASIA">[ ASIA (LOCATION) ]</button>
+      </div>
+
+      <div class="view-toggle-group">
+        <button class="toggle-btn active" data-view="list">[ LEDGER_LIST ]</button>
+        <button class="toggle-btn" data-view="grid">[ GRID_VIEW ]</button>
+      </div>
+    </section>
+
+    <!-- Ledger Content Container -->
+    <section id="ledger-container" class="ledger-container">
+      <!-- Dynamically populated by js/archive.js -->
+    </section>
+
+    <!-- Hard-Shadowed Pop-Up Preview Box (for List View Hover) -->
+    <div id="hover-preview-popup" class="hover-preview-popup">
+      <div class="popup-img-container">
+        <img id="popup-img" src="" alt="Project Preview" />
+      </div>
+      <div class="popup-specs">
+        <div id="popup-title" style="font-weight: 800; margin-bottom: 0.4rem;"></div>
+        <div id="popup-spec" style="color: var(--text-secondary); font-size: 0.75rem;"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="js/archive.js"></script>
+</body>
+</html>
