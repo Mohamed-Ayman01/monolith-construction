@@ -387,17 +387,18 @@ img, svg {
 /* Full-Screen Neobrutalist Mobile Navigation Overlay */
 .mobile-nav-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   height: 100dvh;
   background: #000;
   color: #FFF;
-  z-index: 99999;
+  z-index: 999999 !important;
   display: none;
   flex-direction: column;
   overflow-y: auto;
-  transform: translateY(-100%);
+  pointer-events: auto;
 }
 .mobile-nav-header {
   display: flex;
@@ -1497,7 +1498,27 @@ img, svg {
 /* ==========================================================================
    12. RESPONSIVE BREAKPOINTS (ALL 5 PAGES & MOBILE NAVBAR)
    ========================================================================== */
+@media (max-width: 1250px) {
+  .nav-header {
+    grid-template-columns: 1fr auto !important;
+  }
+  .nav-links, .nav-meta {
+    display: none !important;
+  }
+  .mobile-nav-toggle {
+    display: flex !important;
+  }
+}
+
 @media (max-width: 1200px) {
+  /* Hide desktop vertical divider lines and crosshairs on mobile/tablet when columns stack */
+  .hero-section .grid-line-v,
+  .hero-section .crosshair-node,
+  .contra-section .grid-line-v,
+  .contra-section .crosshair-node {
+    display: none !important;
+  }
+
   .hero-section {
     grid-template-columns: 1fr;
   }
@@ -1542,18 +1563,6 @@ img, svg {
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 850px) {
-  .nav-header {
-    grid-template-columns: 1fr auto;
-  }
-  .nav-links, .nav-meta {
-    display: none !important;
-  }
-  .mobile-nav-toggle {
-    display: flex !important;
   }
 }
 

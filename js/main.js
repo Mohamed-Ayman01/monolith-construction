@@ -122,30 +122,35 @@ function initMobileNav() {
   if (!toggleBtn || !closeBtn || !overlay) return;
 
   function openMenu() {
-    gsap.set(overlay, { display: 'flex', y: '-100%' });
+    if (overlay.parentElement !== document.body) {
+      document.body.appendChild(overlay);
+    }
+    gsap.killTweensOf(overlay);
+    gsap.set(overlay, { display: 'flex', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 999999, yPercent: -100 });
     gsap.to(overlay, {
-      y: '0%',
+      yPercent: 0,
       duration: 0.5,
       ease: 'power4.out',
       onStart: () => {
-        if (lenis) lenis.stop();
+        if (lenis && typeof lenis.stop === 'function') lenis.stop();
         document.body.style.overflow = 'hidden';
       }
     });
     gsap.fromTo(navLinks,
-      { x: -50, opacity: 0 },
-      { x: 0, opacity: 1, duration: 0.4, stagger: 0.08, ease: 'power3.out', delay: 0.2 }
+      { x: -40, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.4, stagger: 0.08, ease: 'power3.out', delay: 0.15 }
     );
   }
 
   function closeMenu() {
+    gsap.killTweensOf(overlay);
     gsap.to(overlay, {
-      y: '-100%',
+      yPercent: -100,
       duration: 0.4,
       ease: 'power3.in',
       onComplete: () => {
         gsap.set(overlay, { display: 'none' });
-        if (lenis) lenis.start();
+        if (lenis && typeof lenis.start === 'function') lenis.start();
         document.body.style.overflow = '';
       }
     });
