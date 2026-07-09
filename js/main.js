@@ -59,11 +59,106 @@ export function renderHeader(activePage = 'home') {
           SYS_ONLINE
         </div>
       </div>
+      <button id="mobile-nav-toggle" class="mobile-nav-toggle font-mono" aria-label="Toggle Navigation Menu">
+        <span>[ MENU // + ]</span>
+      </button>
     </header>
+
+    <!-- Full-Screen Neobrutalist Mobile Navigation Overlay -->
+    <div id="mobile-nav-overlay" class="mobile-nav-overlay">
+      <div class="mobile-nav-header">
+        <a href="index.html" class="nav-logo" style="color: #FFF;">
+          STRUCT <span>// MONOLITH ARCH.</span>
+        </a>
+        <button id="mobile-nav-close" class="btn-neo-white font-mono" style="padding: 0.6rem 1.2rem; font-size: 0.9rem;">
+          [ CLOSE // X ]
+        </button>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="index.html" class="mobile-nav-link ${activePage === 'home' ? 'active' : ''}">
+          <span class="mobile-num">[01]</span>
+          <span class="mobile-title">HOME</span>
+          <span class="mobile-sub">// LANDING PROTOCOL</span>
+        </a>
+        <a href="archive.html" class="mobile-nav-link ${activePage === 'archive' ? 'active' : ''}">
+          <span class="mobile-num">[02]</span>
+          <span class="mobile-title">ARCHIVE</span>
+          <span class="mobile-sub">// GLOBAL COMMISSIONS LEDGER</span>
+        </a>
+        <a href="capabilities.html" class="mobile-nav-link ${activePage === 'capabilities' ? 'active' : ''}">
+          <span class="mobile-num">[03]</span>
+          <span class="mobile-title">CAPABILITIES</span>
+          <span class="mobile-sub">// ENGINEERING & BLUEPRINTS</span>
+        </a>
+        <a href="manifesto.html" class="mobile-nav-link ${activePage === 'manifesto' ? 'active' : ''}">
+          <span class="mobile-num">[04]</span>
+          <span class="mobile-title">MANIFESTO</span>
+          <span class="mobile-sub">// THE ETHICS OF RAW MASS</span>
+        </a>
+        <a href="estimate.html" class="mobile-nav-link ${activePage === 'estimate' ? 'active' : ''}">
+          <span class="mobile-num">[05]</span>
+          <span class="mobile-title">ESTIMATE</span>
+          <span class="mobile-sub">// BESPOKE INITIATION SPEC</span>
+        </a>
+      </div>
+      <div class="mobile-nav-footer">
+        <div class="font-mono text-mono-xs" style="color: #AAA; margin-bottom: 0.6rem;">LAT: 34°03'N / LON: 118°15'W • SAN ANDREAS HQ</div>
+        <div class="font-mono text-mono-xs" style="color: #00FF66; font-weight: 700;">● SYSTEM TERMINAL ONLINE // V4.8</div>
+      </div>
+    </div>
   `;
 
   document.body.insertAdjacentHTML('afterbegin', headerHtml);
   startLiveClock();
+  initMobileNav();
+}
+
+function initMobileNav() {
+  const toggleBtn = document.getElementById('mobile-nav-toggle');
+  const closeBtn = document.getElementById('mobile-nav-close');
+  const overlay = document.getElementById('mobile-nav-overlay');
+  const navLinks = overlay ? overlay.querySelectorAll('.mobile-nav-link') : [];
+
+  if (!toggleBtn || !closeBtn || !overlay) return;
+
+  function openMenu() {
+    gsap.set(overlay, { display: 'flex', y: '-100%' });
+    gsap.to(overlay, {
+      y: '0%',
+      duration: 0.5,
+      ease: 'power4.out',
+      onStart: () => {
+        if (lenis) lenis.stop();
+        document.body.style.overflow = 'hidden';
+      }
+    });
+    gsap.fromTo(navLinks,
+      { x: -50, opacity: 0 },
+      { x: 0, opacity: 1, duration: 0.4, stagger: 0.08, ease: 'power3.out', delay: 0.2 }
+    );
+  }
+
+  function closeMenu() {
+    gsap.to(overlay, {
+      y: '-100%',
+      duration: 0.4,
+      ease: 'power3.in',
+      onComplete: () => {
+        gsap.set(overlay, { display: 'none' });
+        if (lenis) lenis.start();
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  toggleBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      closeMenu();
+    });
+  });
 }
 
 function startLiveClock() {
