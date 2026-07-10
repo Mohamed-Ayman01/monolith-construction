@@ -51,6 +51,7 @@ export function renderHeader(activePage = 'home') {
         <a href="capabilities.html" class="nav-link ${activePage === 'capabilities' ? 'active' : ''}">[03] CAPABILITIES</a>
         <a href="manifesto.html" class="nav-link ${activePage === 'manifesto' ? 'active' : ''}">[04] MANIFESTO</a>
         <a href="estimate.html" class="nav-link ${activePage === 'estimate' ? 'active' : ''}">[05] ESTIMATE</a>
+      </nav>
       <button id="mobile-nav-toggle" class="mobile-nav-toggle font-mono" aria-label="Toggle Navigation Menu">
         <span>[ MENU // + ]</span>
       </button>

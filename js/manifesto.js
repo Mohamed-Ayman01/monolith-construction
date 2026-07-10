@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'none',
         scrollTrigger: {
           trigger: timelineContainer,
-          start: 'top center',
-          end: 'bottom center',
+          start: 'top 100%',
+          end: 'bottom 30%',
           scrub: 0.5
         }
       }
